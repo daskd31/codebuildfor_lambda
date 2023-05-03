@@ -1,1 +1,25 @@
-version: 2.0
+version: 0.2
+
+phases:
+
+  build:
+    commands:
+      - echo "this is build phase for lambda function"
+      - zip -r deployment_package.zip lambda_function.py
+  post_build:
+    commands:
+      - echo "deploying to lambda"
+      - aws lambda update-function-code --function-name hello_world.py --zip-file  fileb://deployment_package.zip
+artifacts:
+    type: zip
+    paths:
+      - '*'
+    #discard-paths:
+  #files:
+    # - We don't currently preserve any artifacts
+  #name: $(date +%Y-%m-%d)
+  #discard-paths: yes
+  #base-directory: location
+#cache:
+  #paths:
+    # - We don't currently cache anything

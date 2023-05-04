@@ -9,7 +9,7 @@ phases:
   post_build:
     commands:
       - echo "deploying to lambda"
-      - aws lambda update-function-code --function-name hello_world.py --zip-file  fileb://deployment_package.zip
+      - aws lambda update-function-code --function-name hello_world.py --zip-file fileb://deployment_package.zip
 artifacts:
     type: zip
     paths:

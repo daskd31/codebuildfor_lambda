@@ -5,11 +5,11 @@ phases:
   build:
     commands:
       - echo "this is build phase for lambda function"
-      - zip -r deployment_package.zip lambda_function.py
+      - zip -r deploymentpackage.zip lambda_function.py
   post_build:
     commands:
       - echo "deploying to lambda"
-      - aws lambda update-function-code --function-name hello_world.py --zip-file fileb://deployment_package.zip
+      - aws lambda update-function-code --function-name helloworld.py --zip-file fileb://deploymentpackage.zip
 artifacts:
     type: zip
     paths:

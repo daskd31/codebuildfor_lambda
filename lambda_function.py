@@ -1,5 +1,4 @@
 import json
-#import boto3
 import os
 
 def lambda_handler(event, context):
@@ -19,18 +18,7 @@ def lambda_handler(event, context):
     
     jsonFormat = json.dumps(event,indent = 6)
     
-    #client = boto3.client('sns')
-    
-    #topicARN = os.environ['topicARN']
-       
-    #response = client.publish(
-    #    TargetArn = topicARN,
-    #    Message = jsonFormat,
-    #    Subject = msgSubject
-    #    )
-    
-    #print(jsonFormat)
-    
+   
     return {
         'statusCode': 200,
         'body': jsonFormat,
